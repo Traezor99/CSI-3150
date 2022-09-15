@@ -19,10 +19,40 @@
                         <li><a href="#education">Education</a></li>
                         <li><a href="#work">Work Experience</a></li>
                         <li><a href="./pages/hobbies.html">Hobbies</a></li>
+                        <li><a href="./pages/projects.html">Projects</a></li>
+                        <li><a href="./pages/calendar.html">Calendar</a></li>
                     </ul>
                 </menu>
             </nav>
         </header>
+        <hr />
+        <section id="misc">
+            <blockquote>"A cool quote"</blockquote>
+            <cite>https://stackoverflow.com</cite>
+            <details>
+                Joe Mama
+                <summary>Who is Darth Vader? SPOILER ALERT!!</summary>
+            </details>
+            <p>
+                We need to get rid of all the users with
+                <abbr title="Site Collection Administrator">SCA</abbr> on that
+                <abbr title="SharePoint Online">SPO</abbr> site by
+                <time datetime="2022-09-17">Saturday</time>.
+            </p>
+            <code>
+                using System; <br />
+                <br />
+                public static string main(string[] args) <br />
+                {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World"); <br />
+                }
+            </code>
+
+            <p>(a + b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + 2ab</p>
+            <p>H<sub>2</sub>O is water</p>
+            <progress id="survey" max="12" value="6">50%</progress>
+            <meter id="diskUsage" value="0.6">60%</meter>
+        </section>
         <hr />
         <section id="education">
             <article>
@@ -42,6 +72,18 @@
                     <li>Previous job</li>
                 </ul>
             </article>
+        </section>
+        <hr />
+        <section>
+            <form action="login.js" method="get">
+                <label for="emailID">Email:</label>
+                <input type="email" name="Email" id="emailID" />
+
+                <label for="passwordID">Password:</label>
+                <input type="password" name="Password" id="passwordID" />
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
         </section>
 
         <footer>Updated 2022</footer>
