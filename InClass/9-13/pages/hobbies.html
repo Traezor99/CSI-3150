@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Testing</title>
+    </head>
+    <body>
+        <header id="header">
+            <h1>Hobbies Page</h1>
+            <nav>
+                <menu>
+                    <ul>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#work">Work Experience</a></li>
+                        <li><a href="../index.html">Home Page</a></li>
+                    </ul>
+                </menu>
+            </nav>
+        </header>
+
+        <!-- Can use js to turn this into a slideshow of images -->
+        <section id="photoGallery">
+            <figure>
+                <source src="" />
+                <source src="" />
+                <source src="" />
+                <source src="" />
+                <figcaption>Caption</figcaption>
+            </figure>
+        </section>
+
+        <!-- Audio -->
+        <!-- Can use loop to loop the audio and autoplay to start it-->
+        <section id="audioSection">
+            <audio src="path to file.mp3" controls>
+                Your browser does not support embedded audio
+            </audio>
+        </section>
+
+        <!-- Video -->
+        <!-- Same idea as audio, I think the options are the same-->
+        <section id="videoSection">
+            <video src=""></video>
+        </section>
+
+        <!-- Book Review -->
+        <section id="bookReviewSection">
+            <p>Here's a cool book</p>
+            <iframe
+                src="https://www.amazon.com/J-R-R-Tolkien-4-Book-Boxed-Set/dp/0345538374/ref=sr_1_2?keywords=Lord+of+the+Rings+book&qid=1663092501&sr=8-2"
+                frameborder="0"
+            ></iframe>
+        </section>
+
+        <!-- YouTube trailer, not working in Firefox, but fine in edge? -->
+        <section id="ytTrailerSection">
+            <p>This is a movie, here's the trailer</p>
+            <hr />
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/vAxgaTvYA7Y"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        </section>
+
+        <footer></footer>
+    </body>
+</html>
