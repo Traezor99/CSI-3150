@@ -1,0 +1,13 @@
+* {
+    background-color: beige;
+}
+
+h1 {
+    color: #0000ff;
+}
+
+#header {
+    font-size: 18px;
+    text-align: center;
+    /*background-image: (can put a url here);*/
+}
