@@ -1,13 +1,41 @@
-* {
-    background-color: beige;
+body {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
     color: #0000ff;
+    text-align: center;
+    border-color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    padding: 5px;
 }
 
-#header {
-    font-size: 18px;
+ul {
+    text-decoration: none;
+    padding: 0px;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+}
+
+ul li {
+    display: inline-block;
+    color: lightblue;
+    width: 20%;
+    margin: 0px;
+}
+
+ul li a {
+    display: block;
+    padding: 10px 25px; /* values are for top/bottom and right/left */
+    color: gray;
+    text-decoration: none;
     text-align: center;
-    /*background-image: (can put a url here);*/
+}
+
+ul li a:hover {
+    color: white;
+    background-color: black;
 }
