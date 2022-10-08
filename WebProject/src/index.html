@@ -5,17 +5,51 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
-        <script type="text/javascript" src="ButtonEvents.js"></script>
+        <script type="text/javascript" src="./js/ButtonEvents.js"></script>
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <canvas id="canvas" width="400" height="300">
+        <div id="content">
+            <button id="line" onclick="drawLine('canvas')">Line</button>
+            <button id="circle" onclick="drawCircle('canvas')">Circle</button>
+            <button id="square" onclick="drawSquare('canvas')">Square</button>
+            <button id="rectangle" onclick="drawRectangle('canvas')">
+                Rectangle
+            </button>
+            <button id="triangle" onclick="drawTriangle('canvas')">
+                Triangle
+            </button>
+            <button id="textBox" onclick="drawText('canvas', 'Insert Text')">
+                Text Box
+            </button>
+            <input
+                id="imageUpload"
+                type="file"
+                name="profile_photo"
+                placeholder="Photo"
+                required=""
+                capture
+            />
+            <button id="clear" onclick="clearCanvas('canvas')">Clear</button>
+        </div>
+        <canvas id="canvas">
             Your browser does not support the canvas tag
         </canvas>
-        <div></div>
-        <button id="line" onclick="drawLine('canvas')">Line</button>
-        <button id="circle" onclick="drawCircle('canvas')">Circle</button>
-        <button id="textBox" onclick="drawText('canvas', 'Hello world')">
-            Text Box
-        </button>
+        <div id="properties">
+            <form>
+                <div class="property" id="width">
+                    <label for="width">Width:</label>
+                    <input type="number" name="Width" id="widthID" />
+                </div>
+                <div class="property" id="height">
+                    <label for="height">Height:</label>
+                    <input type="number" name="Height" id="heightID" />
+                </div>
+                <div class="property" id="color">
+                    <label for="colorId">Color:</label>
+                    <input type="color" name="Color" id="color" />
+                </div>
+            </form>
+        </div>
     </body>
 </html>
