@@ -7,11 +7,16 @@
         <title>Caclulator</title>
 
         <link rel="Stylesheet" href="./css/style.css" />
-        <script src="./js/button.js"></script>
+        <script src="./js/app.js" defer></script>
     </head>
     <body>
         <div class="calculator">
-            <input type="text" class="calculator-screen" value="0" disabled />
+            <input
+                type="text"
+                class="calculator-screen"
+                id="display"
+                disabled
+            />
             <div class="calculator-keys">
                 <button type="button" class="operator" value="+">+</button>
                 <button type="button" class="operator" value="-">-</button>
