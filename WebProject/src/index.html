@@ -5,52 +5,77 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
-        <script type="text/javascript" src="./js/ButtonEvents.js"></script>
+        <script
+            type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            defer
+        ></script>
+        <script type="text/javascript" src="./js/jcanvas.js" defer></script>
+        <script
+            type="text/javascript"
+            src="./js/ButtonEvents.js"
+            defer
+        ></script>
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <div id="content">
-            <!-- add images to all of the buttons -->
-            <button id="line" onclick="drawLine('canvas')">Line</button>
-            <button id="circle" onclick="drawCircle('canvas')">Circle</button>
-            <button id="square" onclick="drawSquare('canvas')">Square</button>
-            <button id="rectangle" onclick="drawRectangle('canvas')">
-                Rectangle
-            </button>
-            <button id="triangle" onclick="drawTriangle('canvas')">
-                Triangle
-            </button>
-            <button id="textBox" onclick="drawText('canvas', 'Insert Text')">
-                Text Box
-            </button>
-            <input
-                id="imageUpload"
-                type="file"
-                name="profile_photo"
-                placeholder="Photo"
-                required=""
-                capture
-            />
-            <button id="clear" onclick="clearCanvas('canvas')">Clear</button>
-        </div>
-        <canvas id="canvas">
-            Your browser does not support the canvas tag
-        </canvas>
-        <div id="properties">
-            <form>
-                <div class="property" id="width">
-                    <label for="width">Width:</label>
-                    <input type="number" name="Width" id="widthID" />
-                </div>
-                <div class="property" id="height">
-                    <label for="height">Height:</label>
-                    <input type="number" name="Height" id="heightID" />
-                </div>
-                <div class="property" id="color">
-                    <label for="colorId">Color:</label>
-                    <input type="color" name="Color" id="color" />
-                </div>
-            </form>
+        <div id="page">
+            <div id="content">
+                <!-- add images to all of the buttons -->
+                <button id="line" onclick="drawLine('canvas')">Line</button>
+                <button id="circle" onclick="drawCircleClicked('canvas')">
+                    Circle
+                </button>
+                <button id="square" onclick="drawSquare('canvas')">
+                    Square
+                </button>
+                <button id="rectangle" onclick="drawRectangleClicked('canvas')">
+                    Rectangle
+                </button>
+                <button id="triangle" onclick="drawTriangle('canvas')">
+                    Triangle
+                </button>
+                <button
+                    id="textBox"
+                    onclick="drawText('canvas', 'Insert Text')"
+                >
+                    Text Box
+                </button>
+                <input
+                    id="imageUpload"
+                    type="file"
+                    name="profile_photo"
+                    placeholder="Photo"
+                    required=""
+                    capture
+                />
+                <button id="clear" onclick="clearCanvas('canvas')">
+                    Clear
+                </button>
+            </div>
+            <canvas id="canvas" width="1920" height="1080">
+                Your browser does not support the canvas tag
+            </canvas>
+            <div id="properties">
+                <form>
+                    <div class="property" id="width">
+                        <label for="widthID">Width:</label>
+                        <input type="number" name="Width" id="widthID" />
+                    </div>
+                    <div class="property" id="height">
+                        <label for="heightID">Height:</label>
+                        <input type="number" name="Height" id="heightID" />
+                    </div>
+                    <div class="property" id="color">
+                        <label for="colorID">Color:</label>
+                        <input type="color" name="Color" id="colorID" />
+                    </div>
+                    <div class="property" id="text">
+                        <label for="textID">Text:</label>
+                        <input type="text" name="Text" id="textID" />
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
 </html>
