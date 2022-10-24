@@ -23,8 +23,8 @@
             <div id="content">
                 <!-- add images to all of the buttons -->
                 <button id="line" onclick="drawLine('canvas')">Line</button>
-                <button id="circle" onclick="drawCircleClicked('canvas')">
-                    Circle
+                <button id="ellipse" onclick="drawEllipseClicked('canvas')">
+                    Ellipse
                 </button>
                 <button id="square" onclick="drawSquare('canvas')">
                     Square
@@ -58,6 +58,10 @@
             </canvas>
             <div id="properties">
                 <form>
+                    <div class="property" id="text">
+                        <label for="textID">Text:</label>
+                        <input type="text" name="Text" id="textID" />
+                    </div>
                     <div class="property" id="width">
                         <label for="widthID">Width:</label>
                         <input type="number" name="Width" id="widthID" />
@@ -66,13 +70,33 @@
                         <label for="heightID">Height:</label>
                         <input type="number" name="Height" id="heightID" />
                     </div>
-                    <div class="property" id="color">
-                        <label for="colorID">Color:</label>
-                        <input type="color" name="Color" id="colorID" />
+                    <div class="property" id="borderWidth">
+                        <label for="borderWidthID">Border Width:</label>
+                        <input
+                            type="number"
+                            name="borderWidth"
+                            id="borderWidthID"
+                        />
                     </div>
-                    <div class="property" id="text">
-                        <label for="textID">Text:</label>
-                        <input type="text" name="Text" id="textID" />
+                    <div class="property" id="borderColor">
+                        <label for="borderColorID">Border Color:</label>
+                        <input
+                            type="color"
+                            name="borderColor"
+                            id="borderColorID"
+                        />
+                    </div>
+                    <div class="property" id="fillColor">
+                        <label for="fillColorID">Fill Color:</label>
+                        <input type="color" name="fillColor" id="fillColorID" />
+                    </div>
+                    <div class="property" id="submitButton">
+                        <button
+                            id="applyProps"
+                            onclick="applyPropertiesClicked()"
+                        >
+                            Apply
+                        </button>
                     </div>
                 </form>
             </div>
