@@ -22,23 +22,15 @@
         <div id="page">
             <div id="content">
                 <!-- add images to all of the buttons -->
-                <button id="line" onclick="drawLine('canvas')">Line</button>
-                <button id="ellipse" onclick="drawEllipseClicked('canvas')">
+                <button id="line" onclick="drawLine()">Line</button>
+                <button id="ellipse" onclick="drawEllipseClicked()">
                     Ellipse
                 </button>
-                <button id="square" onclick="drawSquare('canvas')">
-                    Square
-                </button>
-                <button id="rectangle" onclick="drawRectangleClicked('canvas')">
+                <button id="rectangle" onclick="drawRectangleClicked()">
                     Rectangle
                 </button>
-                <button id="triangle" onclick="drawTriangle('canvas')">
-                    Triangle
-                </button>
-                <button
-                    id="textBox"
-                    onclick="drawText('canvas', 'Insert Text')"
-                >
+                <button id="triangle" onclick="drawTriangle()">Triangle</button>
+                <button id="textBox" onclick="drawTextClicked()">
                     Text Box
                 </button>
                 <input
@@ -49,50 +41,73 @@
                     required=""
                     capture
                 />
-                <button id="clear" onclick="clearCanvas('canvas')">
-                    Clear
-                </button>
+                <button id="clear" onclick="clearCanvas()">Clear</button>
             </div>
-            <canvas id="canvas" width="1920" height="1080">
+            <canvas id="canvas" width="1344" height="756">
                 Your browser does not support the canvas tag
             </canvas>
             <div id="properties">
                 <form>
-                    <div class="property" id="text">
-                        <label for="textID">Text:</label>
-                        <input type="text" name="Text" id="textID" />
+                    <div class="propertySection" id="generalProperties">
+                        <div class="property" id="xPos">
+                            <label for="xPosID">X:</label>
+                            <input type="number" name="X" id="xPosID" />
+                        </div>
+                        <div class="property" id="yPos">
+                            <label for="yPosID">Y:</label>
+                            <input type="number" name="Y" id="yPosID" />
+                        </div>
+                        <div class="property" id="width">
+                            <label for="widthID">Width:</label>
+                            <input type="number" name="Width" id="widthID" />
+                        </div>
+                        <div class="property" id="height">
+                            <label for="heightID">Height:</label>
+                            <input type="number" name="Height" id="heightID" />
+                        </div>
+                        <div class="property" id="rotate">
+                            <label for="rotateID">Rotate:</label>
+                            <input type="number" name="Rotate" id="rotateID" />
+                        </div>
+                        <div class="property" id="borderWidth">
+                            <label for="borderWidthID">Border Width:</label>
+                            <input
+                                type="number"
+                                name="borderWidth"
+                                id="borderWidthID"
+                            />
+                        </div>
+                        <div class="property" id="borderColor">
+                            <label for="borderColorID">Border Color:</label>
+                            <input
+                                type="color"
+                                name="borderColor"
+                                id="borderColorID"
+                            />
+                        </div>
+                        <div class="property" id="fillColor">
+                            <label for="fillColorID">Fill Color:</label>
+                            <input
+                                type="color"
+                                name="fillColor"
+                                id="fillColorID"
+                            />
+                        </div>
                     </div>
-                    <div class="property" id="width">
-                        <label for="widthID">Width:</label>
-                        <input type="number" name="Width" id="widthID" />
+                    <div class="propertySection" id="textProperties">
+                        <div class="property" id="text">
+                            <label for="textID">Text:</label>
+                            <input type="text" name="Text" id="textID" />
+                        </div>
                     </div>
-                    <div class="property" id="height">
-                        <label for="heightID">Height:</label>
-                        <input type="number" name="Height" id="heightID" />
-                    </div>
-                    <div class="property" id="borderWidth">
-                        <label for="borderWidthID">Border Width:</label>
-                        <input
-                            type="number"
-                            name="borderWidth"
-                            id="borderWidthID"
-                        />
-                    </div>
-                    <div class="property" id="borderColor">
-                        <label for="borderColorID">Border Color:</label>
-                        <input
-                            type="color"
-                            name="borderColor"
-                            id="borderColorID"
-                        />
-                    </div>
-                    <div class="property" id="fillColor">
-                        <label for="fillColorID">Fill Color:</label>
-                        <input type="color" name="fillColor" id="fillColorID" />
-                    </div>
+                    <div class="propertySection" id="polygonProperties"></div>
+                    <div class="propertySection" id="lineProperties"></div>
                 </form>
                 <button id="applyProps" onclick="applyPropertiesClicked()">
                     Apply
+                </button>
+                <button id="applyProps" onclick="deleteLayerClicked()">
+                    Delete
                 </button>
             </div>
         </div>

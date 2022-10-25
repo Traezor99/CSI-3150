@@ -1,4 +1,5 @@
 var selectedIndex = 0;
+var layerNumberIncrement = 0;
 
 //From https://stackoverflow.com/a/5624139
 function rgbToHex(r, g, b) {
@@ -7,7 +8,6 @@ function rgbToHex(r, g, b) {
 
 //Input must be a 3 digit hex string, including the # at the start
 function expandShortHex(shortHex) {
-    let shortHexDigits = shortHex.replace("#", "");
     let hexChars = shortHex.replace("#", "").split("");
     if (hexChars.length == 3)
         return (
@@ -51,7 +51,8 @@ function drawLine(canvasId) {
 function drawRectangleClicked() {
     $("canvas").drawRect({
         layer: true,
-        name: "myBox",
+        draggable: true,
+        name: "Rectangle" + layerNumberIncrement++,
         fillStyle: "#585",
         x: 100,
         y: 100,
@@ -60,13 +61,20 @@ function drawRectangleClicked() {
         click: function (layer) {
             displayProperties(layer, false);
         },
+        mouseover: function (layer) {
+            $(this).css("cursor", "pointer");
+        },
+        mouseout: function (layer) {
+            $(this).css("cursor", "default");
+        },
     });
 }
 
-function drawEllipseClicked(canvasId) {
+function drawEllipseClicked() {
     $("canvas").drawEllipse({
         layer: true,
-        name: "circle",
+        draggable: true,
+        name: "Ellipse" + layerNumberIncrement++,
         fillStyle: "#654",
         strokeStyle: "#000",
         strokeWidth: "3",
@@ -77,60 +85,84 @@ function drawEllipseClicked(canvasId) {
         click: function (layer) {
             displayProperties(layer, false);
         },
+        mouseover: function (layer) {
+            $(this).css("cursor", "pointer");
+        },
+        mouseout: function (layer) {
+            $(this).css("cursor", "default");
+        },
     });
 }
 
-function drawText(canvasId, text) {
-    let c = document.getElementById(canvasId);
-    let ctx = c.getContext("2d");
-    ctx.font = "30px Arial";
-    ctx.fillText(text, 10, 50);
+function drawTextClicked() {
+    $("canvas").drawText({
+        layer: true,
+        draggable: true,
+        name: "Text" + layerNumberIncrement++,
+        fillStyle: "#000",
+        x: 150,
+        y: 100,
+        strokeWidth: 0,
+        fontSize: 24,
+        fontFamily: "Arial, sans-serif",
+        text: "Click to add text",
+        click: function (layer) {
+            displayProperties(layer, true);
+        },
+        mouseover: function (layer) {
+            $(this).css("cursor", "pointer");
+        },
+        mouseout: function (layer) {
+            $(this).css("cursor", "default");
+        },
+    });
 }
 
-function clearCanvas(canvasId, text) {
-    if (confirm("Are you sure you want to clear the canvas?")) {
-        let c = document.getElementById(canvasId);
-        let ctx = c.getContext("2d");
-        ctx.clearRect(0, 0, c.clientWidth, c.clientHeight);
-        $("canvas").removeLayers();
-    }
+function clearCanvas() {
+    if (confirm("Are you sure you want to clear the canvas?"))
+        $("canvas").removeLayers().drawLayers();
 }
 
 function displayProperties(layer, isText) {
     selectedIndex = layer.index;
-
     $("#properties").css("display", "inline-block");
 
     if (isText) {
         $("#text").css("display", "block");
-        $("#text").val(layer.text);
+        $("#textID").val(layer.text);
     } else {
         $("#text").css("display", "none");
     }
 
-    //console.log($("#fillColorID"));
+    $("#xPosID").val(layer.x);
+    $("#yPosID").val(layer.y);
     $("#widthID").val(layer.width);
     $("#heightID").val(layer.height);
+    $("#rotateID").val(layer.rotate);
     $("#borderWidthID").val(layer.strokeWidth);
     $("#borderColorID").val(expandShortHex(layer.strokeStyle));
     $("#fillColorID").val(expandShortHex(layer.fillStyle));
-    //Need to convert colors to RGB, then back to hex for setting the style
-    //TODO, set values in #properties based on layer.
 }
 
 function applyPropertiesClicked() {
-    console.log(selectedIndex);
-    console.log($("canvas").getLayer(selectedIndex));
-    console.log($("#widthID").val());
-    $("canvas").setLayer(selectedIndex, {
-        width: $("#widthID").val(),
-        height: $("#heightID").val(),
-        strokeWidth: $("#borderWidthID").val(),
-        strokeStyle: $("#borderColorID").val(),
-        fillStyle: $("#fillColorID").val(),
-        text: $("#text").val(),
-    });
-    console.log($("canvas").getLayer(selectedIndex));
-    $("canvas").drawLayers();
-    console.log($("canvas").getLayer(selectedIndex));
+    $("canvas")
+        .setLayer(selectedIndex, {
+            x: $("#xPosID").val(),
+            y: $("#yPosID").val(),
+            width: $("#widthID").val(),
+            height: $("#heightID").val(),
+            rotate: $("#rotateID").val(),
+            strokeWidth: $("#borderWidthID").val(),
+            strokeStyle: $("#borderColorID").val(),
+            fillStyle: $("#fillColorID").val(),
+            text: $("#textID").val(),
+        })
+        .drawLayers();
+}
+
+function deleteLayerClicked() {
+    if (confirm("Are you sure you want to delete this layer?")) {
+        $("canvas").removeLayer(selectedIndex).drawLayers();
+        $("#properties").css("display", "none");
+    }
 }
