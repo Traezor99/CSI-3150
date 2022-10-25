@@ -119,12 +119,18 @@ function displayProperties(layer, isText) {
 }
 
 function applyPropertiesClicked() {
+    console.log(selectedIndex);
+    console.log($("canvas").getLayer(selectedIndex));
+    console.log($("#widthID").val());
     $("canvas").setLayer(selectedIndex, {
-        width: $("#widthID").value,
-        height: $("#heightID").value,
-        strokeWidth: $("#borderWidthID").value,
-        strokeStyle: $("#borderColorID").value,
-        fillStyle: $("#fillColorID").value,
-        text: $("#text").value,
+        width: $("#widthID").val(),
+        height: $("#heightID").val(),
+        strokeWidth: $("#borderWidthID").val(),
+        strokeStyle: $("#borderColorID").val(),
+        fillStyle: $("#fillColorID").val(),
+        text: $("#text").val(),
     });
+    console.log($("canvas").getLayer(selectedIndex));
+    $("canvas").drawLayers();
+    console.log($("canvas").getLayer(selectedIndex));
 }
