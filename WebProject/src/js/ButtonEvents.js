@@ -52,6 +52,7 @@ function drawRectangleClicked() {
     $("canvas").drawRect({
         layer: true,
         draggable: true,
+        bringToFront: true,
         name: "Rectangle" + layerNumberIncrement++,
         fillStyle: "#585",
         x: 100,
@@ -74,6 +75,7 @@ function drawEllipseClicked() {
     $("canvas").drawEllipse({
         layer: true,
         draggable: true,
+        bringToFront: true,
         name: "Ellipse" + layerNumberIncrement++,
         fillStyle: "#654",
         strokeStyle: "#000",
@@ -98,6 +100,7 @@ function drawTextClicked() {
     $("canvas").drawText({
         layer: true,
         draggable: true,
+        bringToFront: true,
         name: "Text" + layerNumberIncrement++,
         fillStyle: "#000",
         x: 150,
@@ -118,9 +121,26 @@ function drawTextClicked() {
     });
 }
 
+//Ask user to confirm and then clear the canvas
 function clearCanvas() {
     if (confirm("Are you sure you want to clear the canvas?"))
         $("canvas").removeLayers().drawLayers();
+}
+
+//Will let the user enter a name for the image and then save it as a .png file
+function saveImageClick() {
+    let fileName = prompt("Enter a name for the image", "New Image");
+    if (fileName !== null && fileName !== "") {
+        var link = document.getElementById("container");
+        link.setAttribute("download", fileName + ".png");
+        link.setAttribute(
+            "href",
+            canvas
+                .toDataURL("image/png")
+                .replace("image/png", "image/octet-stream")
+        );
+        link.click();
+    }
 }
 
 function displayProperties(layer, isText) {
