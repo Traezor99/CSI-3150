@@ -11,13 +11,7 @@ function expandShortHex(shortHex) {
     let hexChars = shortHex.replace("#", "").split("");
     if (hexChars.length == 3)
         return (
-            "#" +
-            hexChars[0] +
-            hexChars[0] +
-            hexChars[1] +
-            hexChars[1] +
-            hexChars[2] +
-            hexChars[2]
+            "#" + hexChars[0] + hexChars[0] + hexChars[1] + hexChars[1] + hexChars[2] + hexChars[2]
         );
     else return shortHex;
 }
@@ -135,9 +129,7 @@ function saveImageClick() {
         link.setAttribute("download", fileName + ".png");
         link.setAttribute(
             "href",
-            canvas
-                .toDataURL("image/png")
-                .replace("image/png", "image/octet-stream")
+            canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
         );
         link.click();
     }
@@ -150,6 +142,8 @@ function displayProperties(layer, isText) {
     if (isText) {
         $("#text").css("display", "block");
         $("#textID").val(layer.text);
+        $("#fontFamilyID").val(layer.fontFamily);
+        $("#fontSizeID").val(layer.fontSize);
     } else {
         $("#text").css("display", "none");
     }
@@ -176,6 +170,8 @@ function applyPropertiesClicked() {
             strokeStyle: $("#borderColorID").val(),
             fillStyle: $("#fillColorID").val(),
             text: $("#textID").val(),
+            fontFamily: $("#fontFamilyID").val(),
+            fontSize: $("#fontSizeID").val(),
         })
         .drawLayers();
 }
