@@ -4,6 +4,12 @@ import ExoImage1 from "../componenets/detroit-murals.jpeg";
 import BookmarkImage from "../components/bookmark-logo.png";
 
 function Card(props) {
+    //To do things with state
+    const [name, setName] = React.useState({
+        field1: "value",
+        field2: 4,
+    });
+
     return (
         <div className="card">
             <img src={props.img} className="card-image" alt="detroit murals" />
